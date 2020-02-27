@@ -17,7 +17,11 @@ export default {
 
 <style lang="css" scoped>
   div {
-    border: solid blue;
+    padding: 5%;
+    background-color: #EDEDED;
+    border-radius: 4em;
+    display: run-in;
+    justify-content: center;
     max-width: 100%;
   }
   img {
