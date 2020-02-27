@@ -1,9 +1,23 @@
 <template>
-  <div id="app">
-    <h1>Beers</h1>
-    <beers-list :beers="beers"></beers-list>
-    <beer-detail v-if="selectedBeer":beer="selectedBeer"></beer-detail>
-  </div>
+
+    <div class="container">
+
+      <div id="child">
+        <h1>Beers..</h1>
+        <beers-list :beers="beers"></beers-list>
+      </div>
+
+      <div id="child">
+        <beer-detail v-if="selectedBeer":beer="selectedBeer"></beer-detail>
+      </div>
+
+      <div id="child">
+        <h1>Favourites..</h1>
+        <favourite-beers :beers="favouriteBeers"></favourite-beers>
+      </div>
+
+    </div>
+
 </template>
 
 <script>
@@ -22,25 +36,50 @@ export default {
   mounted(){
     fetch('https://api.punkapi.com/v2/beers/')
     .then(res => res.json())
-    .then(data => this.beers = data)
+    .then(data => this.beers = this.formatBeers(data))
 
     eventBus.$on('beer-selected', (beer) => {
       this.selectedBeer = beer;
     })
   },
+  computed:{
+    favouriteBeers: function(){
+      return this.beers.filter((beer)=>{
+        return beer.isFavourite;
+      })
+    }
+  },
+  methods: {
+    formatBeers: function(beers){
+      return beers.map((beer) => {
+        beer['isFavourite'] = false;
+        return beer;
+      })
+    }
+  },
   components: {
     "beers-list": BeersList,
-    "beer-detail": BeerDetail
+    "beer-detail": BeerDetail,
+    "favourite-beers": BeersList
   }
 }
 </script>
 
 <style>
-#app {
+div {
+  border: red solid;
+}
+.container {
+  border: solid blue;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+#child {
+  display: flexbox;
+  justify-content: center;
+  width: 30%;
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   margin-top: 60px;
 }

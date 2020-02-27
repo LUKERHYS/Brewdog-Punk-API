@@ -1,5 +1,8 @@
 <template lang="html">
-  <li @click="handleClick">{{beer.name}}</li>
+  <div>
+    <input v-model="beer.isFavourite" type="checkbox">
+    <li @click="handleClick">{{beer.name}}</li>
+  </div>
 </template>
 
 <script>
@@ -17,6 +20,9 @@ export default {
 </script>
 
 <style lang="css" scoped>
+div {
+  border: solid green;
+}
 li {
     list-style: none;
     padding: 0;

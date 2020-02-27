@@ -1,5 +1,6 @@
 <template lang="html">
   <div v-if="beer">
+    <h1>Details..</h1>
     <h3>{{beer.name}}</h3>
     <p>Description: {{beer.description}}</p>
     <p>Abv: {{beer.abv}}</p>
@@ -15,8 +16,12 @@ export default {
 </script>
 
 <style lang="css" scoped>
+  div {
+    border: solid blue;
+    max-width: 100%;
+  }
   img {
-    max-height: 10%;
-    max-width: 10%;
+    max-height: 25%;
+    max-width: 25%;
   }
 </style>

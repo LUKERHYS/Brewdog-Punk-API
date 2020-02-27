@@ -1,7 +1,7 @@
 <template lang="html">
-  <ul>
-    <list-component v-for="(beer, index) in beers" :beer="beer" :key="index"></list-component>
-  </ul>
+    <ul>
+      <list-component v-for="(beer, index) in beers" :beer="beer" :key="index"></list-component>
+    </ul>
 </template>
 
 <script>
@@ -12,7 +12,7 @@ export default {
   props: ['beers'],
   components: {
     "list-component": ListComponent
-  }
+  },
 }
 </script>
 
