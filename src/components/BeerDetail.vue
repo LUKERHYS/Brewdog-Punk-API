@@ -2,8 +2,8 @@
   <div v-if="beer">
     <h1>Details..</h1>
     <h3>{{beer.name}}</h3>
-    <p>Description: {{beer.description}}</p>
-    <p>Abv: {{beer.abv}}</p>
+    <p><b>Description:</b> {{beer.description}}</p>
+    <p><b>Abv: {{beer.abv}}</b></p>
     <img :src="beer.image_url">
   </div>
 </template>
@@ -18,8 +18,10 @@ export default {
 <style lang="css" scoped>
   div {
     padding: 5%;
+    border-style: solid;
+    border-color: #00AFDB;
     background-color: #EDEDED;
-    border-radius: 4em;
+    border-radius: 3em;
     display: run-in;
     justify-content: center;
     max-width: 100%;

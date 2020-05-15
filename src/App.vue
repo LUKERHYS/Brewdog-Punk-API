@@ -23,7 +23,6 @@
 <script>
 import BeersList from './components/BeersList.vue'
 import BeerDetail from './components/BeerDetail.vue'
-import FavouriteBeers from './components/FavouriteBeers.vue'
 import {eventBus} from './main.js'
 
 export default {
